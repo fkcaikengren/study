@@ -4,6 +4,8 @@
 
 - https://fishedee.com/2021/07/13/Formily%E7%9A%84Reactive%E7%9A%84%E7%BB%8F%E9%AA%8C%E6%B1%87%E6%80%BB/
 
+https://www.nowcoder.com/discuss/518524586548375552
+
 ### 原理
 
 类似 vue3 的响应式原理，通过 proxy 代理对象，监听对象的 get 和 set 操作，来实现响应式。
