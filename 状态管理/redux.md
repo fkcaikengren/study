@@ -42,9 +42,9 @@ function useSelector(selector）{
 ```
 
 **useSyncExternalStore 如何工作？**
-订阅 store（store.subscribe），
-检测状态是否变化（通过 store.getState() 获取最新值）
-如果状态变了，触发组件重新渲染（React 重新执行组件） ==>这里会做状态的浅比较，来决定是否重新渲染组件
+useSyncExternalStore(todosStore.subscribe, todosStore.getSnapshot);
+
+React 使用 subscribe 函数， 注册一个 callback:会调用 getSnapshot 并在需要的时候重新渲染组件。当 getSnapshot 返回的数据引用发生变化（浅比较），就会重新渲染组件。
 
 #### react 可以局部 手动 更新组件？
 

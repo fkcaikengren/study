@@ -1,5 +1,9 @@
 ## antd 的 rc-field-form 库
 
+rc-field-form 是一个通用的表单模型/组件。和 UI 无关。
+
+关注：收集数据，验证数据，联动。
+
 ### 基础结构和概念
 
 **FormContext**
@@ -85,3 +89,14 @@ dispatch({
 
 children 是一个函数 (fields) => ReactNode。用 store 中的数据数组来渲染重复的 ReactNode。  
 并且提供了一些操作方法： add, remove。这些方法可以控制 store 数据数组的增删。
+
+---
+
+### 总结
+
+一个数据中心 FormStore,包含了表单数据和所有的 Field 实例。
+
+两个组件 Form 和 Field。
+Field 用来包裹具体控件，Field 内部：挂载时注册自己（实例）；通过 value/onChange 接管控件；定义 onStoreChange 方法，在 store 更新时调用（订阅发布，onStoreChange 会判断 namePath 决定是否触发组件更新 ）；onChange 会修改 FormStore 的状态树。
+
+Form 负责将 FormStore 上的一些方法 setFieldValue,getFieldValue 暴露给外部使用。

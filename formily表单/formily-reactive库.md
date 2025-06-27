@@ -12,4 +12,22 @@ https://www.nowcoder.com/discuss/518524586548375552
 通过 autorun 收集依赖，当触发 setter 时，从全局的 WeakMap 中找出这个「对象.属性」对应的依赖集合，并执行这些依赖。  
 依赖即组件的渲染函数，这样能实现组件的精确更新。(大致上 render 函数被称为 Reaction)
 
+### formily/reactive 的 api
+
+#### Tracker 是什么？
+
+例子：
+
+```jsx
+new Tracker(() => {
+  if (typeof options?.scheduler === "function") {
+    options.scheduler(forceUpdate);
+  } else {
+    forceUpdate();
+  }
+});
+
+tracker.track(view); //返回要给新组件？
+```
+
 ### formily/reactive-react 的 api

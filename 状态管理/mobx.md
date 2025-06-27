@@ -88,4 +88,4 @@ MobX 使用 Proxy（或 Object.defineProperty）对 observable 数据进行包�
 **​​react-redux​​：**
 基于 Redux 的 ​​ 单向数据流 ​​。状态变更通过 dispatch(action) 触发，Redux 通知所有订阅的组件（通过 connect 或 useSelector），由 React Fiber 调度器统一协调更新。
 ​​ 优势 ​​：与 Fiber 深度集成，遵循 React 的优先级调度（如时间切片、并发模式）。
-​​ 劣势 ​​：更新可能触发多个组件的重渲染，需依赖 React.memo 或手动优化。
+​​ 劣势 ​​：更新可能触发多个组件的重渲染，需依赖 React.memo 或手动优化。(redux 通知某个组件更新，走 Fiber 流程，仍然是要从根节点开始向下遍历)
